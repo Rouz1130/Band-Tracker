@@ -8,6 +8,7 @@ namespace BandTracker
   {
     private int _id;
     private string _name;
+    //constructors
 
     public Venue(string Name, int Id = 0)
     {
@@ -15,6 +16,7 @@ namespace BandTracker
       _name = Name;
     }
 
+    //getters and setters
     public int GetId()
     {
       return _id;
@@ -27,6 +29,22 @@ namespace BandTracker
     {
       _name = newName;
     }
+
+    public override bool Equals(System.Object otherVenue)
+    {
+      if (!(otherVenue is Venue))
+      {
+        return false;
+      }
+      else
+      {
+        Venue newVenue = (Venue) otherVenue;
+        bool idEquality = this.GetId() == newVenue.GetId();
+        bool nameEquality = this.GetName() == newVenue.GetName();
+        return (idEquality && nameEquality);
+      }
+    }
+
 
     public static List<Venue> GetAll()
     {
@@ -48,67 +66,52 @@ namespace BandTracker
 
       if (rdr != null)
       {
-        conn.Close();
+        rdr.Close();
       }
       if (conn != null)
       {
         conn.Close();
       }
+
       return allVenues;
-}
+    }
 
-public static void DeleteAll()
-{
-  SqlConnection conn = DB.Connection();
-  conn.Open();
-  SqlCommand cmd = new SqlCommand("DELETE FROM venues;", conn);
-  cmd.ExecuteNonQuery();
-  conn.Close();
-}
+    public void Save()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
 
-public override bool Equals(System.Object otherVenue)
-{
+      SqlCommand cmd = new SqlCommand("INSERT INTO venues (name) OUTPUT INSERTED.id VALUES (@VenueName);", conn);
 
-  if (! (otherVenue is Venue))
-  {
-    return false;
+      SqlParameter nameParameter = new SqlParameter();
+      nameParameter.ParameterName = "@VenueName";
+      nameParameter.Value = this.GetName();
+      cmd.Parameters.Add(nameParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._id = rdr.GetInt32(0);
+      }
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+    }
+
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("DELETE FROM venues;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+    }
+
+
   }
-  else
-  {
-    Venue newVenue = (Venue) otherVenue;
-    bool idEquality = this.GetId() == newVenue.GetId();
-    bool nameEqaulity = this.GetName() == newVenue.GetName();
-    return (idEquality && nameEqaulity);
-  }
-}
-
-  // public static List<Venue> GetAll()
-  // {
-  //   List<Venue> allVenues = new List<Venue>{};
-  //
-  //   SqlConnection conn = DB.Connection();
-  //   conn.Open();
-  //
-  //   SqlCommand cmd = new SqlCommand("SELECT * FROM venues;", conn);
-  //   SqlDataReader rdr = cmd.ExecuteReader();
-  //
-  //   while(rdr.Read())
-  //   {
-  //     int venueId = rdr.GetInt32(0);
-  //     string venueName = rdr.GetString(1);
-  //     Venue newVenue = new Venue(venueName, venueId);
-  //     allVenues.Add(newVenue);
-  //   }
-  //   if (rdr !=null)
-  //   {
-  //     rdr.Close();
-  //   }
-  //   if (conn != null)
-  //   {
-  //     conn.Close();
-  //   }
-  //   return allVenues;
-  // }
-
- }
 }
