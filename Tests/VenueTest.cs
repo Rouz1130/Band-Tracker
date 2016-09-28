@@ -10,15 +10,21 @@ namespace BandTracker
   {
     public VenueTest()
     {
-       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
+    }
+
+    public void Dispose()
+    {
+      Venue.DeleteAll();
     }
 
     [Fact]
-    public void Test1_EmptyDatabase()
+    public void Test1_TestsEmptyAtFirst()
     {
-      int resut = Venue.GetAl().Count;
+      int result = Venue.GetAll().Count;
 
-      Assert.Equal(0,result);
+      Assert.Equal(0, result);
     }
+
   }
 }

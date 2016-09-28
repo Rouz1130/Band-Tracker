@@ -5,7 +5,7 @@ using Nancy;
 using Nancy.Owin;
 using Nancy.ViewEngines.Razor;
 
-namespace Appointment
+namespace BandTracker
 {
   public class Startup
   {
@@ -40,6 +40,6 @@ namespace Appointment
   }
   public static class DBConfiguration
   {
-      public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=doctor_appointment;Integrated Security=SSPI;";
+      public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker;Integrated Security=SSPI;";
   }
 }
