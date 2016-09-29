@@ -39,7 +39,7 @@ namespace BandTracker
       List<Band> result = Band.GetAll();
       List<Band> testResult = new List<Band>{testBand};
 
-      Assert.Equal(testBand, result);
+      Assert.Equal(testResult, result);
     }
 
 
