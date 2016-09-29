@@ -10,7 +10,7 @@ namespace BandTracker
   {
     public BandTest()
     {
-        DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
 
     [Fact]
@@ -22,13 +22,13 @@ namespace BandTracker
     }
 
     [Fact]
-   public void Test2_ReturnsForSameName()
-   {
-     Band firstBand = new Band("Greenday");
-     Band secondBand = new Band("Greenday");
+    public void Test2_ReturnsForSameName()
+    {
+      Band firstBand = new Band("Greenday");
+      Band secondBand = new Band("Greenday");
 
-     Assert.Equal(firstBand, secondBand);
-   }
+      Assert.Equal(firstBand, secondBand);
+    }
 
 
     [Fact]
@@ -44,31 +44,31 @@ namespace BandTracker
     }
 
     [Fact]
-   public void Test4_SavesIdForBandObject()
-   {
-     Band testBand = new Band("Nirvana");
-     testBand.Save();
+    public void Test4_SavesIdForBandObject()
+    {
+      Band testBand = new Band("Nirvana");
+      testBand.Save();
 
-     Band savedBand = Band.GetAll()[0];
+      Band savedBand = Band.GetAll()[0];
 
-     int result = savedBand.GetId();
-     int testId = testBand.GetId();
+      int result = savedBand.GetId();
+      int testId = testBand.GetId();
 
-     Assert.Equal(testId, result);
-   }
+      Assert.Equal(testId, result);
+    }
 
-   [Fact]
-   public void Test5_FindBandInDatabase()
-   {
-     Band testBand = new Band("Sting");
-     testBand.Save();
+    [Fact]
+    public void Test5_FindBandInDatabase()
+    {
+      Band testBand = new Band("Sting");
+      testBand.Save();
 
-     Band foundBand = Band.Find(testBand.GetId());
+      Band foundBand = Band.Find(testBand.GetId());
 
-     Assert.Equal(testBand, foundBand);
-   }
+      Assert.Equal(testBand, foundBand);
+    }
 
-   [Fact]
+    [Fact]
     public void Test6_AddsVenueToBand()
     {
       Band testBand = new Band("Nirvana");
@@ -104,28 +104,28 @@ namespace BandTracker
     }
 
     [Fact]
-   public void Test8_DeleteOneFromDatabase()
-   {
-     Venue testVenue = new Venue("Skydome");
-     testVenue.Save();
+    public void Test8_DeleteOneFromDatabase()
+    {
+      Venue testVenue = new Venue("Skydome");
+      testVenue.Save();
 
-     Band testBand = new Band("Ac/dc");
-     testBand.Save();
+      Band testBand = new Band("Ac/dc");
+      testBand.Save();
 
-     testBand.AddVenue(testVenue);
-     testBand.Delete();
+      testBand.AddVenue(testVenue);
+      testBand.Delete();
 
-     List<Band> resultVenueBands = testVenue.GetBands();
-     List<Band> testVenueBands = new List<Band> {};
+      List<Band> resultVenueBands = testVenue.GetBands();
+      List<Band> testVenueBands = new List<Band> {};
 
-     Assert.Equal(testVenueBands, resultVenueBands);
-   }
+      Assert.Equal(testVenueBands, resultVenueBands);
+    }
 
-   public void Dispose()
-   {
-     Band.DeleteAll();
-     Venue.DeleteAll();
-   }
+    public void Dispose()
+    {
+      Band.DeleteAll();
+      Venue.DeleteAll();
+    }
 
   }
 }
