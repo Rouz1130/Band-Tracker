@@ -131,5 +131,24 @@ namespace BandTracker
     Assert.Equal(testList, savedBands);
   }
 
+  [Fact]
+   public void Test9_Delete_DeleteOneFromDatabase()
+   {
+     Band testBand = new Band("The Police");
+     testBand.Save();
+
+     Venue testVenue = new Venue("Paramount");
+     testVenue.Save();
+
+     testVenue.AddBand(testBand);
+     testVenue.Delete();
+
+     List<Venue> resultBandVenues = testBand.GetVenues();
+     List<Venue> testBandVenues = new List<Venue> {};
+
+     Assert.Equal(testBandVenues, resultBandVenues);
+   }
+
+
   }
 }
