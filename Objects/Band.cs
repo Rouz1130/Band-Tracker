@@ -15,7 +15,6 @@ namespace BandTracker
       _name = Name;
     }
 
-
     //getters and settes
     public int GetId()
     {
@@ -29,6 +28,22 @@ namespace BandTracker
     {
       _name = newName;
     }
+
+    public override bool Equals(System.Object otherBand)
+    {
+      if (!(otherBand is Band))
+      {
+        return false;
+      }
+      else
+      {
+        Band newBand = (Band) otherBand;
+        bool idEquality = this.GetId() == newBand.GetId();
+        bool nameEquality = this.GetName() == newBand.GetName();
+        return (idEquality && nameEquality);
+      }
+    }
+
 
     //methods
     public static List<Band> GetAll()
