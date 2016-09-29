@@ -30,6 +30,18 @@ namespace BandTracker
       Assert.Equal(firstBand, secondBand);
     }
 
+    [Fact]
+    public void Test3_SavesToDatabase()
+    {
+      Band testBand = new Band("Nirvana");
+      testBand.Save();
+
+      List<Band> result = Band.GetAll();
+      List<Band> testResult = new List<Band>{testBand};
+
+      Assert.Equal(testBand, result);
+    }
+
 
     public void Dispose()
     {
