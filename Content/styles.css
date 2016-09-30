@@ -1,0 +1,41 @@
+body {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/6e/43/6a/6e436ae99a6d6c46deca6d973a7f6805.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.jumbotron {
+    margin-bottom: 50px;
+    background-image: url(http://www.walldevil.com/wallpapers/a67/backgrounds-vector-graphics-swirls-pictures-music-girls-wallpapers-cool-background.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    padding-top: 10px;
+    border-radius: 60px;
+}
+  h1 {
+    animation-duration: 3s;
+    animation-name: slidein;
+    font-style: italic;
+    font-family: cursive;
+  }
+  .p {
+    animation-duration: 3s;
+    animation-name: slidein;
+    font-style: italic;
+    font-family: cursive;
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
