@@ -1,0 +1,14 @@
+<h1>Track Bands Venue location</h1>
+<br>
+<h2>Edit curent Location: @Model.GetName()</h2>
+<hr>
+<br>
+<form action="/venue/edit/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="venue-id" type="hidden" value="@Model.GetId()">
+  <label for="venue-name">Venue name</label>
+  <input id="venue-name" name="venue-name" type="text">
+  <button type="submit">Enter</button>
+</form>
+<br>
+<h4><a href="/">Home</a></h4>

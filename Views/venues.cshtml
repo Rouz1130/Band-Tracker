@@ -1,0 +1,23 @@
+<h1>Tracker</h1>
+<p>Keep Track of What Bands Play at Which Venue</p>
+<br>
+<h2>Venues</h2>
+@if (Model.Count != 0)
+{
+  <ul>
+    @foreach (var venue in Model)
+    {
+      <li><a href='/venues/@venue.GetId()'>@venue.GetName()</a> | <a href="/venue/edit/@venue.GetId()">Edit</a>| <a href="venue/delete/@venue.GetId()">Delete</a>
+      </li>
+    }
+  </ul>
+  <br>
+  <form action="/venues/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+}
+<br>
+<h3><a href="/venues/new">Add</a></h3>
+<br>
+<h3><a href="/">Return home</a></h3>
+<hr>

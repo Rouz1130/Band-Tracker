@@ -1,0 +1,22 @@
+<h1>Tracker</h1>
+<p>Add or Delete to you List</p>
+<br>
+<h2>Bands</h2>
+@if (Model.Count != 0)
+{
+  <ul>
+    @foreach (var band in Model)
+    {
+      <li><a href='/bands/@band.GetId()'>@band.GetName()</a></li>
+    }
+  </ul>
+  <form action="/bands/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+}
+<br>
+<h3><a href="/bands/new">Add</a></h3>
+<br>
+<h3><a href="/">Home</a></h3>
+<br>
+<hr>

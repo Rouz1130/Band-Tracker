@@ -1,0 +1,9 @@
+<h2>Confirm to Delete</h2>
+<br>
+<h4>@Model.GetName()</h4>
+<form action="/venue/delete/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete</button>
+</form>
+<br>
+<p><a href="/">Home</a></p>
