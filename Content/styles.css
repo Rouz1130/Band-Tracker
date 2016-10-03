@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/6e/43/6a/6e436ae99a6d6c46deca6d973a7f6805.jpg");
+  background-image: url("http://ak0.picdn.net/shutterstock/videos/3529622/thumb/1.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,7 +7,7 @@ body {
 }
 .jumbotron {
     margin-bottom: 50px;
-    background-image: url"(https://cdn.promodj.com/users-heads/00/00/02/06/44/handsupheader_h8412.jpg");
+    background-image: url("http://livemusicusa.net/pictures/live%20music%20header%20an.gif");
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,10 +16,35 @@ body {
     padding-top: 10px;
     border-radius: 60px;
 }
+a:hover {
+    color: white;
+    text-decoration: underline;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+  }
+
+.venue {
+  color: white;
+  font-style: italic;
+  font-family: cursive;
+  font-size: 70px;
+}
+p{
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  font-family: cursive;
+}
+.venues{
+  color: white;
+  font-style: italic;
+  font-family: cursive;
+}
   h1 {
     animation-duration: 3s;
     animation-name: slidein;
-    font-style: italic;
+    font-style:italic;http://www.visitaarhus.com/sites/default/files/styles/galleries_ratio/public/asp/visitaarhus/Musiksteder/Musikhuset/amfisscenen-2.jpg?itok=DRXLFjVn
     font-family: cursive;
   }
   .p {

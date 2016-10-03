@@ -108,6 +108,11 @@ namespace BandTracker
         return View["cleared.cshtml"];
       };
 
+      Get["/contact"]= _=>{
+        return View["contact.cshtml"];
+      };
+
+
     }
   }
 }
