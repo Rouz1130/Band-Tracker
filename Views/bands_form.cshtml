@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="Content/styles.css" >
+<link rel="stylesheet" href="../Content/styles.css" >
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -18,11 +18,11 @@
     </ul>
   </div>
 </nav>
-<h1>Create a Band To Your List</h1>
-<hr>
+<h1 class="venue">Create a Band To Your List</h1>
+<br>
 <br>
 <form action="/bands/new" method="post">
-  <label for="band-name">Name</label>
+  <label class="label" for="band-name">NAME:</label>
   <input id="band-name" name="band-name" type="text">
   <button type="submit">Add</button>
 </form>

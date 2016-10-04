@@ -5,6 +5,14 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+.navbar {
+  padding-top: 2%;
+  font-size: 35px;
+  font-style: italic;
+  font-family: cursive;
+  background-color: #101010; 
+}
+
 .jumbotron {
     margin-bottom: 50px;
     background-image: url("http://livemusicusa.net/pictures/live%20music%20header%20an.gif");
@@ -64,3 +72,17 @@ p{
       margin-left: 0%;
       width: 100%;
     }
+
+
+.label {
+  color: white;
+  font-size: 60px;
+}
+.form {
+  font-size: 30px;
+  color: white;
+}
+
+.forms {
+  color: white:
+}

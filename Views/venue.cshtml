@@ -1,4 +1,25 @@
-<h1>Venue: @Model["venue"].GetName()</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="../Content/styles.css" >
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- <h1><a class="navbar-brand" href="#">Doctor Patient Database</a></h1> -->
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="active"href="/">Home</a></li>
+      <li><a class="active" href="/venues">Venues</a></li>
+      <li><a class="active" href="/bands">Bands/Artists</a></li>
+      <li><a class="active" href="/venues/new">Add Venue</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/contact"><span class="glyphicon glyphicon-user"></span>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<h1 class="venue">Venue: @Model["venue"].GetName()</h1>
 <br>
 <br>
 @if (@Model["venueBands"].Count != 0)
@@ -12,11 +33,11 @@
   </ul>
 }
 <br>
-
-<h2>Add More Bands:</h2>
+<h2 class="venues">Add More Bands:</h2>
+<br>
 <form action='/venue/add_band' method='post'>
   <input id='venue-id' name='venue-id' type='hidden' value='@Model["venue"].GetId()'>
-  <label for='band-id'>Select a band</label>
+  <label class="label" for='band-id'>SELECT BAND:</label>
   <select id='band-id' name='band-id' type='text'>
     @foreach (var band in @Model["allBands"])
     {
@@ -25,6 +46,3 @@
   </select>
   <button type='submit'>Add</button>
 </form>
-<br>
-<br>
-<p><a href="/">Home</a></p>

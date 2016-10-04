@@ -1,14 +1,32 @@
-<h1>Track Bands Venue location</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Content/styles.css" >
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- <h1><a class="navbar-brand" href="#">Doctor Patient Database</a></h1> -->
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="active"href="/">Home</a></li>
+      <li><a class="active" href="/venues">Venues</a></li>
+      <li><a class="active" href="/bands">Bands/Artists</a></li>
+      <li><a class="active" href="/venues/new">Add Venue</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/contact"><span class="glyphicon glyphicon-user"></span>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<h1 class="venue">Track Bands Venue location</h1>
 <br>
-<h2>Edit curent Location: @Model.GetName()</h2>
-<hr>
+<h2 class="venues">Edit curent Location: @Model.GetName()</h2>
 <br>
 <form action="/venue/edit/@Model.GetId()" method="post">
   <input type="hidden" name="_method" value="PATCH">
   <input name="venue-id" type="hidden" value="@Model.GetId()">
-  <label for="venue-name">Venue name</label>
+  <label class="label" for="venue-name">VENUE NAME:</label>
   <input id="venue-name" name="venue-name" type="text">
   <button type="submit">Enter</button>
 </form>
-<br>
-<h4><a href="/">Home</a></h4>

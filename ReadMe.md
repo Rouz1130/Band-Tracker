@@ -4,7 +4,7 @@ By Rouz Majlessi
 
 Description
 
-This App wil let the user Add bands to a particular venue and vice versa
+This App will let the user Add bands to a particular venue and vice versa
 
 Setup
 
