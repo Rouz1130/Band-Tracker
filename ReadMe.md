@@ -10,6 +10,12 @@ Setup
 
 CREATE DATABASE band_tracker; GO USE band_tracker; GO CREATE TABLE bands (id INT IDENTITY(1,1), name VARCHAR(255)); GO CREATE TABLE venues (id INT IDENTITY(1,1), name VARCHAR(255)); GO CREATE TABLE venues_bands (id INT IDENTITY(1,1), venue_id INT, band_id INT); GO
 
+Clone down project from GitHub
+run: DNU restore
+run: DNX kestrel
+
+
+
 Known Bugs
 
 None
