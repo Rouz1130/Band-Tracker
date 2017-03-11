@@ -18,6 +18,7 @@ Write a program to track bands and the venues where they've played concerts. Mak
 + When a user is viewing a single concert venue, list out all of the bands that have played at that venue so far and allow them to add a band to that venue. Create a method to get the bands who have played at a venue, and use a join statement in it.
 + When a user is viewing a single Band, list out all of the Venues that have hosted that band and allow them to add a Venue to that Band. Use a join statement in this method too.
 
+
 ###### Requirements
 For this code review, use the following names for your databases:
 
@@ -26,92 +27,38 @@ For this code review, use the following names for your databases:
 + Resource names will be venues and bands
 + Include .sql files holding the schema for both your band_tracker and band_tracker_test databases (see instructions in the Migrating databases with SSMS lesson) . In your README, include the details of your database names and tables as a back up (see the example below from a To Do application):
 
-```Sql
+###### Installation
+Using Mono in the root directory, type the following at the command prompt:
 
-CREATE DATABASE bandtracker;
-GO
-USE bandtracker;
+To install dependencies:
 
--- Table 'bands'
-DROP TABLE IF EXISTS bands;
+>dnu restore
 
-CREATE TABLE bands (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  name VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
+To use the database, in SQLCMD:
 
--- Table 'venues'
-DROP TABLE IF EXISTS venues;
+>CREATE DATABASE band_tracker;
 
-CREATE TABLE venues (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  name VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
+>GO
 
--- Table 'bands_venues'
-DROP TABLE IF EXISTS bands_venues;
+>USE band_tracker;
 
-CREATE TABLE bands_venues (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  band_id INTEGER NULL DEFAULT NULL,
-  venue_id INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
--- Foreign Keys
--- ---
+>GO
 
-ALTER TABLE bands_venues ADD FOREIGN KEY (band_id) REFERENCES bands (id);
-ALTER TABLE bands_venues ADD FOREIGN KEY (venue_id) REFERENCES venues (id);
-GO
+>CREATE TABLE bands (id INT IDENTITY (1,1), name VARCHAR(255), );
 
-CREATE DATABASE bandtracker_tests;
-GO
-USE bandtracker_tests;
+>CREATE TABLE venues (id INT IDENTITY (1,1), name VARCHAR(255));
 
--- Table 'bands'
-DROP TABLE IF EXISTS bands;
+>GO
 
-CREATE TABLE bands (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  name VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
+> CREATE TABLE bands_venues (id INT IDENTITY (1,1), band_id INT, venue_id INT);
 
--- Table 'venues'
-DROP TABLE IF EXISTS venues;
+To run the local server:
 
-CREATE TABLE venues (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  name VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
+>dnx kestrel
 
--- Table 'bands_venues'
-DROP TABLE IF EXISTS bands_venues;
-
-CREATE TABLE bands_venues (
-  id INTEGER NOT NULL IDENTITY(1,1),
-  band_id INTEGER NULL DEFAULT NULL,
-  venue_id INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (id)
-);
--- Foreign Keys
--- ---
-
-ALTER TABLE bands_venues ADD FOREIGN KEY (band_id) REFERENCES bands (id);
-ALTER TABLE bands_venues ADD FOREIGN KEY (venue_id) REFERENCES venues (id);
+Copy: http://localhost:5004 in your browser.
 
 
--- Test Data
--- ---
-
--- INSERT INTO bands (name) VALUES ('');
--- INSERT INTO venues (name) VALUES('');
--- INSERT INTO bands_venues (band_id,venue_id) VALUES ('','');
-
-```
 ###### Objectives
 Here are the objectives that will be used to review your code:
 
